@@ -1,0 +1,42 @@
+program:1
+class Main {
+    public static void main(String[] args) {
+             int sub1 = 88;                            //initializing subject1 marks                        
+	     int sub2 = 80;
+	     int sub3 = 78;
+	     int sub4 = 44;
+	     int sub5 = 68;
+	     int total = (sub1+sub2+sub3+sub4+sub5);    // total calculated
+	     
+	     System.out.println("Total : "+ total);     // printing total
+        float percentage=(385/500*100);
+        System.out.println("Percentage:"+ percentage );
+    }
+}
+program:2
+public class Area {
+    public static void main(String[] args) {
+        // Area of Rectangle
+        int length = 5;
+        int breadth = 10;
+        int areaRectangle = length * breadth;
+        System.out.println("Area of Rectangle: " + areaRectangle);
+
+        // Area of Triangle
+        float base = 10.5f;
+        float height = 11.5f;
+        float areaTriangle = (1 / 2f) * base * height;
+        System.out.println("Area of Triangle: " + areaTriangle);
+
+        // Area of Square
+        int side = 5;
+        int areaSquare = side * side;
+        System.out.println("Area of Square: " + areaSquare);
+
+        // Area of Circle
+        double pi = 3.14;
+        double radius = 5.0;
+        double areaCircle = pi * radius * radius;
+        System.out.println("Area of Circle: " + areaCircle);
+    }
+}
