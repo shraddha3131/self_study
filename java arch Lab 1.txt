@@ -1,0 +1,25 @@
+Lab1:(a):=
+public class HelloWorld {
+    public static void main(String[] args) { 
+        System.out.println("Hello World"); // print "Hello World" to the console
+    }
+}
+Lab:(b):=
+public class PrimitiveDataTypes {
+    public static void main(String[] args) {
+       
+        byte b = 127;                 // 1 byte (range: -128 to 127)       // Declare variables of different data types
+        short s = 32000;              // 2 bytes
+        int i = 100000;               // 4 bytes
+        long l = 10000000000L;        // 8 bytes
+        float f = 10.5f;              // 4 bytes
+        double d = 99.99;             // 8 bytes
+        char c = 'A';                 // 2 bytes
+        boolean bool = true;          // 1 bit
+
+        
+        System.out.println("Byte: " + b + ", Short: " + s + ", Int: " + i + 
+                           ", Long: " + l + ", Float: " + f + ", Double: " + d +      // Print all variable values
+                           ", Char: " + c + ", Boolean: " + bool);
+    }
+}
