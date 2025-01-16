@@ -1,0 +1,75 @@
+Program 1.:-
+ import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input two numbers
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Input operation choice
+        System.out.println("Choose operation: 1.Add 2.Subtract 3.Multiply 4.Divide");
+        int choice = scanner.nextInt();
+
+        // Perform operation
+        switch (choice) {
+            case 1 -> System.out.println("Result: " + (num1 + num2));
+            case 2 -> System.out.println("Result: " + (num1 - num2));
+            case 3 -> System.out.println("Result: " + (num1 * num2));
+            case 4 -> System.out.println(num2 != 0 ? "Result: " + (num1 / num2) : "Error: Cannot divide by zero!");
+            default -> System.out.println("Invalid choice!");
+        }
+
+        scanner.close();
+    }
+}
+Program2.:-
+import java.util.Scanner;
+
+public class BankingApplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double balance = 1000.00;
+
+        while (true) {
+            System.out.println("\n1. Deposit\n2. Withdraw\n3. Check Balance\n4. Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    balance += scanner.nextDouble();
+                    System.out.println("Updated balance: " + balance);
+                    break;
+                case 2:
+                    System.out.print("Enter withdrawal amount: ");
+                    double withdraw = scanner.nextDouble();
+                    if (withdraw <= balance) {
+                        balance -= withdraw;
+                        System.out.println("Updated balance: " + balance);
+                    } else {
+                        System.out.println("Insufficient balance!");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Current balance: " + balance);
+                    break;
+                case 4:
+                    System.out.println("Thank you for banking with us!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option! Try again.");
+            }
+        }
+    }
+}
+Output:-
+Enter first number: 10
+Enter second number: 5
+Choose operation: 1.Add 2.Subtract 3.Multiply 4.Divide
+Result: 15.0
