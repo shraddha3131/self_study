@@ -1,0 +1,124 @@
+Program 1:
+class Employee {
+    private int id;
+    private String name;
+    private double salary;
+
+    // Constructor
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Getter methods
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    // Method to calculate incremented salary
+    public double getIncrementedSalary(double incrementPercentage) {
+        return salary + (salary * incrementPercentage / 100);
+    }
+
+    // Method to print employee details
+    public void printDetails() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+    }
+}
+
+public class EmployeeDemo {
+    public static void main(String[] args) {
+        // Creating multiple employee objects
+        Employee emp1 = new Employee(101, "Nisha", 50000);
+        Employee emp2 = new Employee(102, "Rahul", 60000);
+
+        // Printing details and incremented salary for each employee
+        emp1.printDetails();
+        System.out.println("Incremented Salary: " + emp1.getIncrementedSalary(10));
+        
+        emp2.printDetails();
+        System.out.println("Incremented Salary: " + emp2.getIncrementedSalary(15));
+    }
+}
+
+OUTPUT:-
+ID: 101, Name: Nisha, Salary: 50000.0
+Incremented Salary: 55000.0
+ID: 102, Name: Rahul, Salary: 60000.0
+Incremented Salary: 69000.0
+
+
+Program 2.:-
+class Student {
+    private int rollNo;
+    private String name;
+    private int[] marks;
+
+    // Constructor
+    public Student(int rollNo, String name, int[] marks) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    // Method to calculate percentage
+    public double calculatePercentage() {
+        int total = 0;
+        for (int mark : marks) {
+            total += mark;
+        }
+        return (double) total / marks.length;
+    }
+
+    // Method to print student details
+    public void printDetails() {
+        System.out.println("Roll No: " + rollNo + ", Name: " + name);
+        System.out.println("Marks: ");
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+        System.out.println();
+    }
+
+    // Method to determine result
+    public String getResult() {
+        double percentage = calculatePercentage();
+        return percentage >= 40 ? "Pass" : "Fail";
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        // Creating multiple student objects
+        Student student1 = new Student(1, "Shraddha", new int[]{85, 90, 80});
+        Student student2 = new Student(2, "Shreya", new int[]{40, 35, 30});
+
+        // Printing details and result for each student
+        student1.printDetails();
+        System.out.println("Percentage: " + student1.calculatePercentage() + "%");
+        System.out.println("Result: " + student1.getResult());
+
+        student2.printDetails();
+        System.out.println("Percentage: " + student2.calculatePercentage() + "%");
+        System.out.println("Result: " + student2.getResult());
+    }
+}
+OUTPUT:-
+Roll No: 1, Name: Shraddha
+Marks: 85 90 80 
+Percentage: 85.0%
+Result: Pass
+
+Roll No: 2, Name: Shreya
+Marks: 40 35 30 
+Percentage: 35.0%
+Result: Fail
