@@ -1,0 +1,35 @@
+Program 1:-
+public class VariablesDemo {
+    int instanceVar = 10;       // Instance variable
+    static int staticVar = 20;  // Static variable
+
+    public void displayVariables() {
+        int localVar = 30;      // Local variable
+
+        // Printing variables
+        System.out.println("Local Variable: " + localVar);
+        System.out.println("Instance Variable: " + instanceVar);
+        System.out.println("Static Variable: " + staticVar);
+    }
+
+    public static void main(String[] args) {
+        VariablesDemo demo = new VariablesDemo();
+        demo.displayVariables();
+    }
+}
+Program 2:-
+public class TypeCasting {
+    public static void main(String[] args) {
+        // Implicit casting
+        int intVal = 100;
+        double doubleVal = intVal;
+
+        // Explicit casting
+        double largeDouble = 99.99;
+        int castedInt = (int) largeDouble;
+
+        // Printing results
+        System.out.println("Implicit Casting (int to double): " + doubleVal);
+        System.out.println("Explicit Casting (double to int): " + castedInt);
+    }
+}
