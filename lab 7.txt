@@ -1,0 +1,47 @@
+Program no.1:(Greatest Number):-
+
+import java.util.Scanner;
+
+public class NumberPrograms {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Find greatest of three integers
+        System.out.print("Enter three integers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+
+        int greatest = num1;
+        if (num2 > greatest) {
+            greatest = num2;
+        }
+        if (num3 > greatest) {
+            greatest = num3;
+        }
+
+        System.out.println("The greatest number is: " + greatest);
+
+Program no.2:-( Check if a number is an Armstrong number)
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int originalNumber = number;
+        int sum = 0;
+
+        while (number > 0) {
+            int remainder = number % 10;
+            sum += remainder * remainder * remainder;
+            number /= 10;
+        }
+
+        if (sum == originalNumber) {
+            System.out.println(originalNumber + " is an Armstrong number.");
+        } else {
+            System.out.println(originalNumber + " is not an Armstrong number.");
+        }
+
+        scanner.close();
+    }
+}

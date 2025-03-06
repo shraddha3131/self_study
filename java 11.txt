@@ -1,0 +1,89 @@
+Task 1: BankAccount and CheckingAccount
+interface BankAccount {
+    void deposit(double amount);
+    void withdraw(double amount);
+}
+
+class CheckingAccount implements BankAccount {
+    private double balance;
+
+    public CheckingAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CheckingAccount account = new CheckingAccount(1000.0);
+        account.deposit(500.0);
+        account.withdraw(200.0);
+        System.out.println("Current balance: " + account.getBalance());
+    }
+}
+
+Task 2: Resizable and Rectangle
+interface Resizable {
+    void resizeWidth(int width);
+    void resizeHeight(int height);
+}
+
+class Rectangle implements Resizable {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public void resizeWidth(int width) {
+        if (width > 0) {
+            this.width = width;
+        }
+    }
+
+    @Override
+    public void resizeHeight(int height) {
+        if (height > 0) {
+            this.height = height;
+        }
+    }
+
+    public int getArea() {
+        return width * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(10, 5);
+        System.out.println("Initial area: " + rectangle.getArea());
+
+        rectangle.resizeWidth(20);
+        rectangle.resizeHeight(10);
+        System.out.println("New area: " + rectangle.getArea());
+    }
+}

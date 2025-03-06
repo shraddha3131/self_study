@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+PROGRAM NO.1:-
+public class ElectricityBill {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of units consumed: ");
+        int unitsConsumed = scanner.nextInt();
+
+        double billAmount;
+
+        if (unitsConsumed <= 100) {
+            billAmount = unitsConsumed * 1.5;
+        } else if (unitsConsumed <= 200) {
+            billAmount = 100 * 1.5 + (unitsConsumed - 100) * 2.0;
+        } else if (unitsConsumed <= 300) {
+            billAmount = 100 * 1.5 + 100 * 2.0 + (unitsConsumed - 200) * 3.0;
+        } else {
+            billAmount = 100 * 1.5 + 100 * 2.0 + 100 * 3.0 + (unitsConsumed - 300) * 4.0;
+        }
+
+        System.out.println("Monthly Electricity Bill: $" + billAmount);
+    }
+}
+PROGRAM NO.2:-
+
+class Shape {
+    public double area() {
+        return 0.0; // Default implementation, overridden in subclasses
+    }
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double area() {
+        return width * height;
+    }
+}
+
+class Square extends Shape {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public double area() {
+        return side * side;
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double area() {
+        return 0.5 * base * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5, 3);
+        Square square = new Square(4);
+        Circle circle = new Circle(2);
+        Triangle triangle = new Triangle(6, 4);
+
+        System.out.println("Area of Rectangle: " + rectangle.area());
+        System.out.println("Area of Square: " + square.area());
+        System.out.println("Area of Circle: " + circle.area());
+        System.out.println("Area of Triangle: " + triangle.area());
+    }
+}

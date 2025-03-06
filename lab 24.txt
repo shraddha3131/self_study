@@ -1,0 +1,38 @@
+public class SortArrayWithoutSortMethod {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 1, 9};
+
+        // Bubble Sort Algorithm
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        // Print the sorted array
+        System.out.print("Sorted Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+public class FindBiggestNumber {
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 20, 8, 15};
+
+        int biggest = arr[0]; // Assume the first element is the biggest initially
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > biggest) {
+                biggest = arr[i];
+            }
+        }
+
+        System.out.println("The biggest number in the array is: " + biggest);
+    }
+}

@@ -1,0 +1,139 @@
+// Implementation of Queue using an array
+class MyQueue {
+    private int[] arr;
+    private int front;
+    private int rear;
+    private int capacity;
+    private int count;
+
+    public MyQueue(int size) {
+        arr = new int[size];
+        capacity = size;
+        front = 0;
+        rear = -1;
+        count = 0;
+    }
+
+    public void enqueue(int item) {
+        if (isFull()) {
+            System.out.println("Queue is full. Cannot enqueue.");
+            return;
+        }
+
+        rear = (rear + 1) % capacity; // Circular increment
+        arr[rear] = item;
+        count++;
+        System.out.println(item + " enqueued to queue.");
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty. Cannot dequeue.");
+            return -1; // Or throw an exception
+        }
+
+        int item = arr[front];
+        front = (front + 1) % capacity; // Circular increment
+        count--;
+        System.out.println(item + " dequeued from queue.");
+        return item;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return -1; // Or throw an exception
+        }
+        return arr[front];
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public boolean isFull() {
+        return count == capacity;
+    }
+
+    public int size() {
+        return count;
+    }
+}
+
+// Implementation of Stack using an array
+class MyStack {
+    private int[] arr;
+    private int top;
+    private int capacity;
+
+    public MyStack(int size) {
+        arr = new int[size];
+        capacity = size;
+        top = -1;
+    }
+
+    public void push(int item) {
+        if (isFull()) {
+            System.out.println("Stack Overflow. Cannot push.");
+            return;
+        }
+
+        arr[++top] = item;
+        System.out.println(item + " pushed to stack.");
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow. Cannot pop.");
+            return -1; // Or throw an exception
+        }
+
+        int item = arr[top--];
+        System.out.println(item + " popped from stack.");
+        return item;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return -1; // Or throw an exception
+        }
+        return arr[top];
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == capacity - 1;
+    }
+
+    public int size() {
+        return top + 1;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Example usage of Queue
+        MyQueue queue = new MyQueue(5);
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        System.out.println("Front element: " + queue.peek());
+        System.out.println("Dequeued: " + queue.dequeue());
+        System.out.println("Front element: " + queue.peek());
+
+        // Example usage of Stack
+        MyStack stack = new MyStack(5);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("Top element: " + stack.peek());
+        System.out.println("Popped: " + stack.pop());
+        System.out.println("Top element: " + stack.peek());
+    }
+}

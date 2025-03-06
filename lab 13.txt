@@ -1,0 +1,130 @@
+/ Shape interface
+interface Shape {
+    double getArea();
+}
+
+// Rectangle class
+class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double getArea() {
+        return length * width;
+    }
+}
+
+// Circle class
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Triangle class
+class Triangle implements Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String args) {
+        Rectangle rectangle = new Rectangle(5, 10);
+        Circle circle = new Circle(7);
+        Triangle triangle = new Triangle(4, 6);
+
+        System.out.println("Rectangle area: " + rectangle.getArea());
+        System.out.println("Circle area: " + circle.getArea());
+        System.out.println("Triangle area: " + triangle.getArea());
+    }
+}
+
+
+**// Employee interface**
+interface Employee {
+    String getName();
+    double calculateSalary();
+}
+
+// Regular Employee class
+class RegularEmployee implements Employee {
+    private String name;
+    private double salary;
+
+    public RegularEmployee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return salary;
+    }
+}
+
+// Contract Employee class
+class ContractEmployee implements Employee {
+    private String name;
+    private double hourlyRate;
+    private int hoursWorked;
+
+    public ContractEmployee(String name, double hourlyRate, int hoursWorked) {
+        this.name = name;
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return hourlyRate * hoursWorked;
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        RegularEmployee regularEmp = new RegularEmployee("Alice", 60000);
+        ContractEmployee contractEmp = new ContractEmployee("Bob", 50, 160);
+
+        System.out.println("Regular Employee:");
+        System.out.println("Name: " + regularEmp.getName());
+        System.out.println("Salary: " + regularEmp.calculateSalary());
+
+        System.out.println("\nContract Employee:");
+        System.out.println("Name: " + contractEmp.getName());
+        System.out.println("Salary: " + contractEmp.calculateSalary());
+    }
+}

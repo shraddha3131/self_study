@@ -1,0 +1,145 @@
+public class ParentDemo 
+{
+
+	double sal;
+	ParentDemo()
+	{
+		
+		
+	}
+	ParentDemo(double sal)
+	{
+	  this.sal=sal;    	
+	}
+	
+	public double getsalary()
+	{
+		return sal;
+	}
+	
+	public void viewsalary()
+	{
+       System.out.println("Salary : "+sal);		
+	}
+}
+
+public class ChildDemo extends ParentDemo
+{
+   
+	double deposit;
+	
+	ChildDemo(double sal, double deposit)
+	{
+	    super(sal);
+		this.deposit=deposit;
+	}
+	
+	public double getdeposit()
+	{
+	   return deposit;	
+	}
+	
+	
+}
+public class Banking {
+
+	public static void main(String[] args)
+	{
+	
+		ChildDemo cd = new ChildDemo(5000.00, 2000.00);
+		
+		cd.viewsalary();
+		
+		System.out.println("Deposit value : "+cd.getdeposit());
+		
+		double finalsalary = cd.getdeposit()+cd.getsalary();
+		
+		System.out.println("Final salary : "+ finalsalary);
+		
+	}
+
+}
+**Same withdrawl demo using super keyword**:
+class ParentDemo {
+
+    double sal;
+
+    ParentDemo(double sal) {
+        this.sal = sal;
+    }
+
+    public double getsalary() {
+        return sal;
+    }
+
+    public void viewsalary() {
+        System.out.println("Salary : " + sal);
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= sal) {
+            sal -= amount;
+            System.out.println("Withdrawal successful. Remaining balance: " + sal);
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+}
+
+class ChildDemo extends ParentDemo {
+
+    double deposit;
+
+    ChildDemo(double sal, double deposit) {
+        super(sal); // Call parent constructor to initialize salary
+        this.deposit = deposit;
+    }
+
+    public double getdeposit() {
+        return deposit;
+    }
+
+    // Overriding withdraw method to include deposit
+    @Override
+    public void withdraw(double amount) {
+        double totalBalance = super.getsalary() + this.getdeposit(); // Using super to access parent's salary
+
+        if (amount <= totalBalance) {
+            if (amount <= super.getsalary()) {
+                super.withdraw(amount); // Withdraw from salary first using super
+            } else {
+                double remainingFromSalary = super.getsalary();
+                super.withdraw(remainingFromSalary);
+
+                double remainingFromDeposit = amount - remainingFromSalary;
+                this.deposit -= remainingFromDeposit;
+                System.out.println("Withdrawal from deposit: " + remainingFromDeposit);
+                System.out.println("Remaining deposit balance: " + this.deposit);
+            }
+        } else {
+            System.out.println("Insufficient funds (including deposit).");
+        }
+    }
+
+
+}
+
+public class Banking {
+
+    public static void main(String[] args) {
+
+        ChildDemo cd = new ChildDemo(5000.00, 2000.00);
+
+        cd.viewsalary();
+        System.out.println("Deposit value : " + cd.getdeposit());
+
+        cd.withdraw(3000); // Withdraw from salary
+        cd.withdraw(3000); // Withdraw from deposit
+        cd.withdraw(10000); // Insufficient funds
+
+        double finalsalary = cd.getdeposit() + cd.getsalary();
+        System.out.println("Final salary : " + finalsalary);
+
+    }
+
+}

@@ -1,0 +1,39 @@
+Program no.1:-(*Writing to a file using BufferedWriter:*)
+public class BufferedReaderExample {
+public static void main(String[] args) {
+try {
+// Create a BufferedReader object associated with a FileReader object for the specified file
+BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+String line;
+// Read lines from the file one by one until the end of the file is reached
+while ((line = reader.readLine()) != null) {
+System.out.println(line);
+}
+// Close the BufferedReader and FileReader objects
+reader.close();
+} catch (IOException e) {
+System.out.println("An error occurred while reading from the file.");
+e.printStackTrace();
+}
+}
+}
+
+Program no.1:-(*Writing to a file using BufferedWriter:*)
+
+public class BufferedWriterExample {
+    public static void main(String[] args) {
+        try {
+            // Create a BufferedWriter object associated with a FileWriter object for the specified file
+            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+
+            // Write a line of text to the file
+            writer.write("Hello, World!");
+
+            // Close the BufferedWriter and FileWriter objects
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+    }
+}
