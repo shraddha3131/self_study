@@ -1,0 +1,67 @@
+Program no.1:-(program using break and continue statement):-
+public class BreakContinueExample {
+
+    public static void main(String[] args) {
+        // Example of break statement
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                break; // Exit the loop when i is 3
+            }
+            System.out.println("Value of i: " + i);
+        }
+
+        // Example of continue statement
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue; // Skip the rest of the iteration when i is 3
+            }
+            System.out.println("Value of i: " + i);
+        }
+    }
+}
+Program no.2:-(Pattern display):-
+public class HollowTrianglePattern {
+    public static void main(String[] args) {
+        int rows = 5; // Number of rows in the triangle
+
+        for (int i = 1; i <= rows; i++) {
+            // Print leading spaces
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars and spaces for hollow effect
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                if (j == 1 || j == (2 * i - 1) || i == rows) {
+                    System.out.print("*"); // Print stars at edges or last row
+                } else {
+                    System.out.print(" "); // Print spaces inside
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+program::
+
+enum Subjects
+{
+   Java,Python, OS, Networking	
+}
+
+public class Enumdemo1 
+{
+
+	public static void main(String [] args)
+	{
+		
+		Subjects sub1 = Subjects.Java;
+		Subjects sub2 = Subjects.OS;
+		Subjects sub3 = Subjects.Networking;
+		
+		
+		System.out.println(sub1);
+		System.out.println(sub2);
+		System.out.println(sub3);
+	}
+	
+}

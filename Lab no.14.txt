@@ -1,0 +1,71 @@
+class AreaCalculator {
+
+    // Method to calculate area of a rectangle
+    public int calculateArea(int length, int width) {
+        return length * width;
+    }
+
+    // Method to calculate area of a square (same method name, different parameters)
+    public int calculateArea(int side) {
+        return side * side;
+    }
+
+    // Method to calculate area of a circle (same method name, different parameters)
+    public double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AreaCalculator calculator = new AreaCalculator();
+
+        // Calling different versions of calculateArea based on arguments
+        System.out.println("Area of rectangle: " + calculator.calculateArea(5, 10));
+        System.out.println("Area of square: " + calculator.calculateArea(7));
+        System.out.println("Area of circle: " + calculator.calculateArea(3.5));
+    }
+}
+
+
+// Parent class
+class Animal {
+    public void makeSound() {
+        System.out.println("Some generic animal sound");
+    }
+}
+
+// Child class inheriting from Animal
+class Dog extends Animal {
+    // Overriding the makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+// Another child class inheriting from Animal
+class Cat extends Animal {
+    // Overriding the makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        // Calling makeSound on different objects
+        animal.makeSound(); // Calls Animal's makeSound
+        dog.makeSound();    // Calls Dog's makeSound (overridden)
+        cat.makeSound();    // Calls Cat's makeSound (overridden)
+
+        // Polymorphism in action: Using a parent class reference
+        Animal myPet = dog; // myPet can refer to a Dog object
+        myPet.makeSound(); // Calls Dog's makeSound (run-time decision)
+    }
+}

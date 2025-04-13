@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListOperations {
+    public static void main(String[] args) {
+        // Create a new ArrayList
+        List<String> myList = new ArrayList<>();
+
+        // Add elements to the list
+        myList.add("Apple");
+        myList.add("Banana");
+        myList.add("Orange");
+
+        // Print the list
+        System.out.println("Original List: " + myList);
+
+        // Retrieve an element (e.g., the first element)
+        String firstElement = myList.get(0);
+        System.out.println("First Element: " + firstElement);
+
+        // Add an element at a specific index
+        myList.add(1, "Grape");
+        System.out.println("List after adding 'Grape' at index 1: " + myList);
+
+        // Remove an element (e.g., the last element)
+        myList.remove(myList.size() - 1);
+        System.out.println("List after removing the last element: " + myList);
+
+        // Remove an element by value
+        myList.remove("Banana");
+        System.out.println("List after removing 'Banana': " + myList);
+    }
+}
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class SortArrayList {
+    public static void main(String[] args) {
+        // Create a new ArrayList
+        List<String> myList = new ArrayList<>();
+        myList.add("Zebra");
+        myList.add("Apple");
+        myList.add("Mango");
+
+        System.out.println("Original List: " + myList);
+
+        // Sort the ArrayList in ascending order
+        Collections.sort(myList);
+
+        System.out.println("Sorted List: " + myList);
+    }
+}

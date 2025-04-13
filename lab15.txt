@@ -1,0 +1,150 @@
+
+class Person {
+
+    // Private instance variables (data hiding)
+    private String name;
+    private int age;
+
+    // Constructor to initialize the object
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getter methods to access the private variables (controlled access)
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // Setter methods to modify the private variables (controlled modification)
+    public void setName(String name) {
+        if (name != null && !name.isEmpty()) { // Validation example
+            this.name = name;
+        } else {
+            System.out.println("Invalid name provided.");
+        }
+    }
+
+    public void setAge(int age) {
+        if (age >= 0 && age <= 150) { // Validation example
+            this.age = age;
+        } else {
+            System.out.println("Invalid age provided.");
+        }
+    }
+
+
+    // A method to display person's information
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class EncapsulationDemo {
+    public static void main(String[] args) {
+
+        // Creating a Person object
+        Person person = new Person("Alice", 30);
+
+        // Accessing data using getter methods
+        System.out.println("Person's name: " + person.getName());
+        System.out.println("Person's age: " + person.getAge());
+
+        // Modifying data using setter methods
+        person.setName("Bob");
+        person.setAge(35);
+
+        // Trying to set an invalid age
+        person.setAge(-10); // This will print "Invalid age provided."
+
+        // Displaying updated information
+        person.displayInfo();
+
+
+        // Demonstrating that you can't directly access private members from outside
+        //  person.name = "Eve";  // This will result in a compile-time error.  
+        //  System.out.println(person.age); // This will also result in a compile-time error.
+    }
+}
+/ /Abstract class representing a Student
+abstract class Student {
+
+    // Common attributes for all students
+    String name;
+    int rollNumber;
+    String course;
+
+    // Constructor to initialize student details
+    public Student(String name, int rollNumber, String course) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.course = course;
+    }
+
+    // Abstract method to be implemented by subclasses
+    // This method will print the specific details of a student
+    public abstract void printDetails();
+
+    // Concrete method (not abstract) that can be used by subclasses
+    public void displayBasicInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Course: " + course);
+    }
+}
+
+// Subclass representing an Undergraduate student
+class Undergraduate extends Student {
+
+    int semester;
+
+    public Undergraduate(String name, int rollNumber, String course, int semester) {
+        super(name, rollNumber, course);
+        this.semester = semester;
+    }
+
+    // Implementing the abstract method for Undergraduate
+    @Override
+    public void printDetails() {
+        displayBasicInfo(); // Calling the common method from the superclass
+        System.out.println("Semester: " + semester);
+        System.out.println("--------------------");
+    }
+}
+
+// Subclass representing a Graduate student
+class Graduate extends Student {
+
+    String specialization;
+
+    public Graduate(String name, int rollNumber, String course, String specialization) {
+        super(name, rollNumber, course);
+        this.specialization = specialization;
+    }
+
+    // Implementing the abstract method for Graduate
+    @Override
+    public void printDetails() {
+        displayBasicInfo(); // Calling the common method from the superclass
+        System.out.println("Specialization: " + specialization);
+        System.out.println("--------------------");
+    }
+}
+
+// Main class to demonstrate the usage
+public class Main {
+    public static void main(String[] args) {
+        // Creating instances of different student types
+        Undergraduate ugStudent = new Undergraduate("Alice", 101, "Computer Science", 5);
+        Graduate gradStudent = new Graduate("Bob", 201, "Physics", "Theoretical Physics");
+
+        // Calling the printDetails method to print student information
+        ugStudent.printDetails();
+        gradStudent.printDetails();
+    }
+}
